@@ -9,6 +9,7 @@ import Cocoa
  * btn.tapUpInsideCallBack = { Swift.print("🎉") }
  */
 open class Button: NSView, ConstraintKind { // We use HybridView because that is layerbacked in macOS
+   override open var isFlipped: Bool { true }
    /**
     * - Abstract: Anchor and size stores the autolayout-constraints
     * - Note: We have to store the constraints because we animate them
@@ -28,10 +29,14 @@ open class Button: NSView, ConstraintKind { // We use HybridView because that is
    /**
     * Initiate
     * - Note: setting raster ref: https://stackoverflow.com/questions/24316705/how-to-draw-a-smooth-circle-with-cashapelayer-and-uibezierpath
+    * - Parameters:
+    *   - style: background, border, roundedness
+    *   - frame: size of the button, if you dont use AutoLayout
     */
-   public init(style: Style = Button.defaultStyle, frame: CGRect = .zero) {
+   public init(style: Button.Style = .defaultStyle, frame: CGRect = .zero) {
       self.style = style
       super.init(frame: frame)
+      self.wantsLayer = true // If true then view is layer backed
       self.layer?.rasterizationScale = 2.0 * NSScreen.main!.backingScaleFactor
       self.layer?.shouldRasterize = true
    }

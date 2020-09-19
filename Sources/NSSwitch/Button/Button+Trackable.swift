@@ -45,6 +45,7 @@ extension Button: MouseTrackable {
    /**
     * This is the last NSView so we dont forward the hitTest to further descendants, however we could forward the hit test one more step to the CALayer
     * - Fixme: ⚠️️ the logic inside this method should be in the Shape, and this method should just forward to the shape, if there is a shape
+    * - Parameter point: the point 
     */
    override open func hitTest(_ point: NSPoint) -> NSView? {
       guard let mousePos = self.window?.mouseLocationOutsideOfEventStream else { return nil } // you have to convert the point to localspace, this is the only reliable way to get correct mouseP from mouseDown and mouseMove
@@ -55,10 +56,12 @@ extension Button: MouseTrackable {
       }
       return super.hitTest(point)
    }
+   /**
+    * CGPath
+    */
    var path: CGPath? {
       let r: CGFloat = self.frame.height / 2
-      let roundedRectPath: CGPath = .init(roundedRect: self.bounds, cornerWidth: r, cornerHeight: r, transform: nil)
-      return roundedRectPath // CGPath.init(rect: bounds, transform: nil)
+      return .init(roundedRect: self.bounds, cornerWidth: r, cornerHeight: r, transform: nil)
    }
    /**
     * - Abstract: the only way to update trackingArea is to remove it and add a new one

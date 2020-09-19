@@ -3,6 +3,7 @@ import Spatial
 import QuartzCore
 
 public class SwitchForeground: NSView, ConstraintKind {
+   override open var isFlipped: Bool { true }
    /**
     * - Abstract: Anchor and size stores the autolayout-constraints
     * - Note: We have to store the constraints because we animate them
@@ -16,12 +17,10 @@ public class SwitchForeground: NSView, ConstraintKind {
     */
    init(backgroundColor: NSColor, frame: CGRect) {
       super.init(frame: frame)
-      self.layer?.backgroundColor = backgroundColor.cgColor
+      self.wantsLayer = true // If true then view is layer backed
+//      self.layer?.backgroundColor = backgroundColor.cgColor
       self.layer?.rasterizationScale = 2.0 * NSScreen.main!.backingScaleFactor
       self.layer?.shouldRasterize = true
-      #if os(iOS)
-      self.isUserInteractionEnabled = false // ⚠️️ iOS might support hitTest as well
-      #endif
    }
    /**
     * - Note: Avoid having to repeat this method in every subclass that uses :UIView / :NSView
@@ -31,6 +30,9 @@ public class SwitchForeground: NSView, ConstraintKind {
       fatalError("init?(coder:) is not supported")
    }
 }
+/**
+ * Core
+ */
 extension SwitchForeground {
    /**
     * - Note: This is the only place to get frame.height consistently (when you use either AutoLayout or CGRect based layout)

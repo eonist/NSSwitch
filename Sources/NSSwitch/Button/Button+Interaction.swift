@@ -27,7 +27,6 @@ extension Button {
     * Overridable
     */
    @objc open func onUp() {
-      //      Swift.print("onUp")
       upCallBack()
    }
    /**
@@ -46,7 +45,6 @@ extension Button {
     * Overridable
     */
    @objc open func onDown() {
-      //      Swift.print("onDown")
       downCallBack()
    }
 }

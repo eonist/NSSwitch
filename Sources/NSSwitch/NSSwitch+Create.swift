@@ -6,6 +6,7 @@ import Spatial
 extension NSSwitch {
    /**
     * SwitchForeground
+    * - Note: the background is in the button
     */
    func createForeground() -> SwitchForeground {
       let foreground: SwitchForeground = .init(backgroundColor: switchStyle.foregroundColor, frame: .zero)

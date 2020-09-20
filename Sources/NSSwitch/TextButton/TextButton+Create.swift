@@ -1,0 +1,24 @@
+import Foundation
+import With
+import Spatial
+import NSLabel
+/**
+ * Create
+ */
+extension TextButton {
+   /**
+    * Create text label
+    */
+   open func createTextLabel() -> NSLabel {
+      with(.init()) {
+         addSubview($0)
+         $0.text = self.text
+         $0.textColor = .orange
+         $0.textAlignment = .center
+         $0.font = .systemFont(ofSize: 20)
+         $0.centerVertically()
+         $0.anchorAndSize(to: self)
+         $0.isEnabled = false // Disables interactivity, so that upInside callback works in macOS
+      }
+   }
+}

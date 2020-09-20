@@ -7,8 +7,7 @@ extension NSSwitch {
     * onTapUpInside
     */
    override open func onUpInside() {
-      //      Swift.print("onUpInside")
+      selected.toggle() // we toggle the bool, before we call the call-back
       super.onUpInside()
-      selected.toggle()
    }
 }

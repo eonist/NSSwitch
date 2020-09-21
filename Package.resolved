@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "NSLabel",
+        "repositoryURL": "https://github.com/eonist/NSLabel.git",
+        "state": {
+          "branch": "master",
+          "revision": "f7fb8a8a92e805de0be311eb1750749c05cb564d",
+          "version": null
+        }
+      },
+      {
         "package": "Spatial",
         "repositoryURL": "https://github.com/eonist/Spatial.git",
         "state": {

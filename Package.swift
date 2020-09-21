@@ -11,11 +11,12 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/eonist/With.git", .branch("master")),
+        .package(url: "https://github.com/eonist/NSLabel.git", .branch("master")),
         .package(url: "https://github.com/eonist/Spatial.git", .branch("master"))
     ],
     targets: [
         .target(
             name: "NSSwitch",
-            dependencies: ["With", "Spatial"])
+            dependencies: ["With", "NSLabel", "Spatial"])
     ]
 )

@@ -13,7 +13,6 @@ extension TextButton {
       with(.init()) {
          addSubview($0)
          $0.text = self.text
-//         $0.textColor = .orange
          $0.textAlignment = .center
          $0.font = .systemFont(ofSize: 20)
          $0.centerVertically()

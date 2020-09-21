@@ -1,13 +1,14 @@
 import Foundation
 import QuartzCore
 import NSLabel
-
+/**
+ * TextButton is a Button with a Label in the center
+ */
 open class TextButton: Button {
    public lazy var textLabel: NSLabel = createTextLabel()
-   var textButtonStyle: TextButtonStyle {
+   var textButtonStyle: TextButton.TextButtonStyle {
       didSet {
-         let style: Button.Style = .init(backgroundColor: textButtonStyle.backgroundColor, borderColor: textButtonStyle.borderColor, borderWidth: textButtonStyle.borderWidth, isRounded: false) // convert text-style to button-style
-         super.style = style
+         super.style = textButtonStyle.buttonStyle
          textLabel.textColor = textButtonStyle.textColor
       }
    }
@@ -18,7 +19,7 @@ open class TextButton: Button {
     *   - style: The initial TextButton style
     *   - frame: The initial size and position
     */
-   public init(text: String = "Default", style: TextButton.TextButtonStyle = defaultTextButtonStyle, frame: CGRect = .zero) {
+   public init(text: String = "Default", style: TextButton.TextButtonStyle = .defaultTextButtonStyle, frame: CGRect = .zero) {
       self.text = text
       self.textButtonStyle = style
       let style: Button.Style = .init(backgroundColor: style.backgroundColor, borderColor: style.borderColor, borderWidth: style.borderWidth, isRounded: false)

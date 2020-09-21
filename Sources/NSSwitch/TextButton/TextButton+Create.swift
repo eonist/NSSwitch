@@ -13,9 +13,6 @@ extension TextButton {
       with(.init()) {
          addSubview($0)
          $0.text = self.text
-         $0.textAlignment = .center
-         $0.font = .systemFont(ofSize: 20)
-         $0.centerVertically()
          $0.anchorAndSize(to: self)
          $0.isEnabled = false // Disables interactivity, so that upInside callback works in macOS
       }

@@ -1,7 +1,11 @@
 import Cocoa
 import Spatial
 import QuartzCore
-
+/**
+ * - Fixme: ⚠️️ Add ability to add stroke?
+ * - Fixme: ⚠️️ Add ability to use 1.5x width?
+ * - Fixme: ⚠️️ Add ability to drag? see legacy project for code etc
+ */
 open class NSSwitch: Button, Selectable {
    var switchStyles: SwitchStyles
    public var switchStyle: SwitchStyle

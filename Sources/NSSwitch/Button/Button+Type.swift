@@ -19,8 +19,8 @@ extension Button {
  * Default styles
  */
 extension Button.Style {
-   public static let defaultStyle: Button.Style = .init(backgroundColor: .white, borderColor: .black, borderWidth: 1, isRounded: false)
-   public static let alternateStyle: Button.Style = .init(backgroundColor: .black, borderColor: .white, borderWidth: 1, isRounded: false)
+   public static let `default`: Button.Style = .init(backgroundColor: .white, borderColor: .black, borderWidth: 1, isRounded: false)
+   public static let alternate: Button.Style = .init(backgroundColor: .black, borderColor: .white, borderWidth: 1, isRounded: false)
 }
 /**
  * Closure signatures

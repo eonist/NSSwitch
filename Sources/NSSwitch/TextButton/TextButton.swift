@@ -6,10 +6,10 @@ import NSLabel
  */
 open class TextButton: Button {
    public lazy var textLabel: NSLabel = createTextLabel()
-   var textButtonStyle: TextButton.TextButtonStyle {
+   var textButtonStyle: TextButton.Style {
       didSet {
-         super.style = textButtonStyle.buttonStyle
-         textLabel.textColor = textButtonStyle.textColor
+         super.style = textButtonStyle.button
+         textLabel.setStyle(style: textButtonStyle.label)//textColor = textButtonStyle.label.textColor
       }
    }
    internal var text: String // Text
@@ -19,11 +19,10 @@ open class TextButton: Button {
     *   - style: The initial TextButton style
     *   - frame: The initial size and position
     */
-   public init(text: String = "Default", style: TextButton.TextButtonStyle = .defaultTextButtonStyle, frame: CGRect = .zero) {
+   public init(text: String = "Default", style: TextButton.Style = .default, frame: CGRect = .zero) {
       self.text = text
       self.textButtonStyle = style
-      let style: Button.Style = .init(backgroundColor: style.backgroundColor, borderColor: style.borderColor, borderWidth: style.borderWidth, isRounded: false)
-      super.init(style: style, frame: frame)
+      super.init(style: style.button, frame: frame)
       _ = textLabel
       _ = { self.textButtonStyle = self.textButtonStyle }() // Updates style, a trick to update didSet inside init
    }

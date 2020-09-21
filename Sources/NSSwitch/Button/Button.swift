@@ -33,7 +33,7 @@ open class Button: NSView, ConstraintKind { // We use HybridView because that is
     *   - style: background, border, roundedness
     *   - frame: size of the button, if you dont use AutoLayout
     */
-   public init(style: Button.Style = .defaultStyle, frame: CGRect = .zero) {
+   public init(style: Button.Style = .default, frame: CGRect = .zero) {
       self.style = style
       super.init(frame: frame)
       self.wantsLayer = true // If true then view is layer backed
